@@ -1,12 +1,15 @@
+#Required modules
 from binance.client import Client
 from binance.enums import *
 from rich import print
 
+#API keys
 API_KEY = 'YOUR_API_KEY'
 API_SECRET = 'YOUR_API_SECRET'
 
 client = Client(API_KEY, API_SECRET, testnet=True)
 
+#Market order function
 def market_operation(symbol, side, quantity):
     try:
         order = client.futures_create_order(
@@ -24,6 +27,7 @@ def market_operation(symbol, side, quantity):
         error_log(e)
         print(f"[bold red]Error placing {side} order:[/bold red] {e}")
 
+#Balance function
 def show_balance():
     try:
         account_info = client.futures_account()
@@ -35,6 +39,7 @@ def show_balance():
     except Exception as e:
         print("[bold red]Error fetching account balance:[/bold red]", e)
 
+#Limit order function
 def place_limit_order(symbol, side, quantity, price):
     try:
         order = client.futures_create_order(
@@ -54,14 +59,17 @@ def place_limit_order(symbol, side, quantity, price):
         print(f"[bold red]Error placing {side} LIMIT order:[/bold red] {e}")
         error_log(str(e))
 
+#Order logging
 def order_log(order):
     with open('all_logs.txt', 'a') as file:
         file.write(f"ORDER: {order}\n")
 
+#error logging
 def error_log(error):
     with open('all_logs.txt', 'a') as file:
         file.write(f"ERROR: {error}\n")
 
+#Main
 while True:
     print("\n[bold yellow]Welcome, I am your Trading Bot[/bold yellow]")
     print("[bold blue]MENU[/bold blue]")
