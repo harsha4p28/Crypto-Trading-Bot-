@@ -35,6 +35,12 @@ This is a **command-line Python trading bot** built using the official `python-b
 ### 3. Start the bot
 ` python bot.py`
 
+## Output 
+
+![Image 1](https://drive.google.com/uc?export=view&id=1I6Hc0mfyj9FepJ4IS23pw2z75qzJUFlj)
+
+![Image 2](https://drive.google.com/uc?export=view&id=1I7v5klZt9rcoiMqPbHYjqwgi_uXP-jTv)
+
 ## File structure 
 - chatbot.py
 - readme.md
